@@ -1,9 +1,12 @@
-<p>Select Plan Year
-<select name = 'set_plan_year' ng-model='set_plan_year'>
-  <option value = "No Year Selected">No Year Selected</option>
-  <option value = '2016-2017'>2016-2017</option>
-</select>
-</p>
-<p>Enter Amount you flexed
-<input type="text" id='amount_flexed'ng-model'amount_flexed'name="name" value="">
-</p>
+<div ng-controller = 'planYearSetup'>
+  <p>Select Plan Year
+  <select name = 'set_plan_year' ng-model='set_plan_year'>
+    <option value = "No Year Selected">No Year Selected</option>
+    <option value = '2016-2017'>2016-2017</option>
+  </select>
+  </p>
+  <p>Enter Amount you flexed
+  <input type="text" id='amount_flexed'ng-model'amount_flexed'name="name" value="">
+  </p>
+  <button type="submit" ng-click="sendYearInfo()" name="button">Submit Plan Info</button>
+</div>

@@ -35,3 +35,14 @@ http({
 });
 };
 }]);
+myApp.controller('expenseViewer',['$scope', '$http', function($scope, $http){
+$scope.seeExpenses = function(){
+  $http({
+   method: 'GET',
+   url: '/getExpenses'
+}).then(function(response){
+  $scope.allTheExpenses = response.data;
+});
+};
+
+}]);

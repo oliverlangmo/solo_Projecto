@@ -39,8 +39,16 @@ app.post('/addExpense', function(req,res){
        console.log(err);
        res.sendStatus(500);
      }else{
-       console.log('hero save complete');
+       console.log('expense save complete');
        res.sendStatus(200);
      }
    });
  });
+ app.get('/getExpenses', function(req,res){
+    console.log('hit the get route');
+      expenseToDB.find()
+      .then( function( data ){
+        console.log(data);
+        res.send( data );
+      });
+    });
