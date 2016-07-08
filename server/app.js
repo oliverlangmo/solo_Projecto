@@ -25,3 +25,22 @@ MongoDB.on('error', function (err) {
 MongoDB.once('open', function () {
   console.log('mongodb connection open!');
 });
+app.post('/addExpense', function(req,res){
+   console.log('hit post route with ' + req.body);
+   var saveExpense= new expenseToDB ({
+     planYear: req.body.planYear,
+     description: req.body.description,
+     amount:req.body.amount,
+     date: req.body.date,
+     receiptPic: req.body.receipt,
+   });
+   saveExpense.save(function(err){
+     if(err){
+       console.log(err);
+       res.sendStatus(500);
+     }else{
+       console.log('hero save complete');
+       res.sendStatus(200);
+     }
+   });
+ });

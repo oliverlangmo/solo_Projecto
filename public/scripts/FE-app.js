@@ -9,14 +9,29 @@ myApp.config(["$routeProvider", function($routeProvider){
     controller: "expenseSaver"
   }).when('/expenseView',{
      templateUrl:'/views/routes/expenseView.html',
-     controller: "superGetter"
+     controller: "expenseViewer"
+   }).when('/planYearSetup',{
+     templateUrl:'/views/routes/planYear.html',
+     controller: "planYearSetup"
   }).otherwise({
     redirectTo:'home'
   });
 }]);
 
 myApp.controller('expenseSaver',['$scope','$http', function($scope, $http){
-
-
-
+$scope.sendExpense = function(){
+  var expenseToSave={
+  planYear: $scope.pyIn,
+  description: $scope.whatexpenseIn,
+  amount:$scope.expenseAmtIn,
+  date: $scope.expenseDateIn,
+  receipt: $scope.receiptImgIn
+};
+console.log(expenseToSave);
+http({
+ method: 'POST',
+ url: '/addExpense',
+ data: expenseToSave
+});
+};
 }]);

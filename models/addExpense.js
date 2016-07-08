@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 var expenseSchema = new Schema({
   planYear: String,
   description: String,
+  amount: Number,
   date: String,
   receiptPic: String,
 });
