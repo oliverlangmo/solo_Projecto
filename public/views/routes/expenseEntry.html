@@ -1,0 +1,21 @@
+<h2>Expense Entry</h2>
+    <div ng-controller = 'expenseSaver'>
+        <form>
+          <p>Select Plan Year
+            <select name="plan_year" ng-model="pyIn">
+              <option value = "2016-2017">2016-2017</option>
+            </select>
+          </p>
+          <p>Enter Expense Description
+            <input type="text" id="expenseIn" ng-model="expenseIn"placeholder="Expense description"value="">
+          </p>
+          <p>Enter Expense Date
+            <input type="date" id="expenseDateIn" ng-model="expenseDateIn"placeholder="Date of Expense"value="">
+          </p>
+          <p>Enter receipt URL
+            <input type="text" id='receiptImgIn' ng-model='receiptImgIn'placeholder="URL to receipt image"name="name" value="">
+          </p>
+
+          <button type="submit" ng-click='superSender()' name="button">Save Expense</button>
+        </form>
+    </div>
