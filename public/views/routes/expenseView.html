@@ -1,11 +1,11 @@
 <div ng-controller='expenseViewer'>
     <table>
       <tr ng-repeat="expense in allTheExpenses">
-         <td><strong>Expense Year: </strong> {{pet.pet_name }}</td>
-         <td><strong>Expense Description: </strong> {{pet.pet_kind }}</td>
-         <td><strong>Expense Amount: </strong> {{pet.pet_age}}</td>
-         <td><strong>Expense Date: </strong> {{pet.pet_age}}</td>
-         <td><img ng-src={{pet.pet_pic}} class='img-thumbnail'></td>
+         <td><strong>Expense Year: </strong> {{expense.planYear }}</td>
+         <td><strong>Expense Description: </strong> {{expense.description }}</td>
+         <td><strong>Expense Amount: </strong> {{expense.amount | currency: '$'}}</td>
+         <td><strong>Expense Date: </strong> {{expense.date | date}}</td>
+         <td><img ng-src={{expense.receiptPic}} class='img-thumbnail'></td>
        </tr>
      </table>
      <button type="button" ng-click="seeExpenses()"name="button">See Expenses</button>

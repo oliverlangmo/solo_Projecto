@@ -28,7 +28,7 @@ $scope.sendExpense = function(){
   receipt: $scope.receiptImgIn
 };
 console.log(expenseToSave);
-http({
+$http({
  method: 'POST',
  url: '/addExpense',
  data: expenseToSave

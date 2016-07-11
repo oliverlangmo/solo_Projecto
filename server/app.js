@@ -32,7 +32,7 @@ app.post('/addExpense', function(req,res){
      description: req.body.description,
      amount:req.body.amount,
      date: req.body.date,
-     receiptPic: req.body.receipt,
+     receiptPic: req.body.receipt
    });
    saveExpense.save(function(err){
      if(err){
