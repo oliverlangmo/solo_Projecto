@@ -1,0 +1,11 @@
+<div ng-controller="getPlanYearDeetz">
+<button type="button" ng-click="getPlanYearInfo()"name="button">See Plan Year Info</button>
+<table>
+  <tr ng-repeat="plan in allThePlans">
+     <td><strong>Plan Year: </strong> {{plan.planYear }}</td>
+     <td><strong>Amount Flexed: </strong> {{plan.amount_flexed | currency: '$'}}</td>
+   </tr>
+ </table>
+
+
+</div>

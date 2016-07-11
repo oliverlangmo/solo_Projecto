@@ -1,4 +1,5 @@
 <div ng-controller='expenseViewer'>
+  <div ng-include="'views/partials/PlanYearInfo.html'"></div>
     <table>
       <tr ng-repeat="expense in allTheExpenses">
          <td><strong>Expense Year: </strong> {{expense.planYear }}</td>

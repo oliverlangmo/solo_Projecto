@@ -44,5 +44,29 @@ $scope.seeExpenses = function(){
   $scope.allTheExpenses = response.data;
 });
 };
+}]);
+myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
+  $scope.sendYearInfo = function(){
+    var planYearSend = {
+    plan_year:$scope.set_plan_year,
+    amount_flexed:$scope.amount_flexed
+  };
+  console.log(planYearSend);
+  $http({
+    method: "POST",
+    url: '/setPlanYear',
+    data: planYearSend
+  });
+  };
+}]);
+myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http){
+  $scope.getPlanYearInfo = function(){
+    $http({
+      method: 'GET',
+      url: '/getPlanInfo'
+    }).then(function(response){
+      $scope.allThePlans = response.data;
+    });
+  };
 
 }]);

@@ -15,6 +15,7 @@ app.get('/', function(req,res){
   res.sendFile(path.resolve('public/views/index.html'));
 });
 var expenseToDB = require('../models/addExpense');
+var planYearToDB = require('../models/addPY');
 var mongoURI = "mongodb://localhost:27017/expense-tracker";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
@@ -44,6 +45,22 @@ app.post('/addExpense', function(req,res){
      }
    });
  });
+ app.post('/setPlanYear', function(req,res){
+    console.log('hit post route with ' + req.body);
+    var savePlanYear= new planYearToDB ({
+      planYear: req.body.plan_year,
+      amount_flexed:req.body.amount_flexed
+    });
+    savePlanYear.save(function(err){
+      if(err){
+        console.log(err);
+        res.sendStatus(500);
+      }else{
+        console.log('planYear save complete');
+        res.sendStatus(200);
+      }
+    });
+  });
  app.get('/getExpenses', function(req,res){
     console.log('hit the get route');
       expenseToDB.find()
@@ -52,3 +69,11 @@ app.post('/addExpense', function(req,res){
         res.send( data );
       });
     });
+    app.get('/getPlanInfo', function(req,res){
+       console.log('hit the plan get route');
+         planYearToDB.find()
+         .then( function( data ){
+           console.log(data);
+           res.send( data );
+         });
+       });
