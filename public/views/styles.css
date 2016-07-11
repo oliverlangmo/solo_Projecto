@@ -1,0 +1,11 @@
+img {
+    transition: -webkit-transform 0.25s ease;
+}
+img:hover{
+  cursor: pointer;
+}
+
+img:active {
+
+    -webkit-transform: scale(2);
+}

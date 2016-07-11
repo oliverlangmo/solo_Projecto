@@ -2,11 +2,12 @@
   <div ng-include="'views/partials/PlanYearInfo.html'"></div>
     <table>
       <tr ng-repeat="expense in allTheExpenses">
+        TOTAL SPENT: {{sumTotal}}
          <td><strong>Expense Year: </strong> {{expense.planYear }}</td>
          <td><strong>Expense Description: </strong> {{expense.description }}</td>
          <td><strong>Expense Amount: </strong> {{expense.amount | currency: '$'}}</td>
          <td><strong>Expense Date: </strong> {{expense.date | date}}</td>
-         <td><img ng-src={{expense.receiptPic}} class='img-thumbnail'></td>
+         <td><img ng-src={{expense.receiptPic}}></td>
        </tr>
      </table>
      <button type="button" ng-click="seeExpenses()"name="button">See Expenses</button>

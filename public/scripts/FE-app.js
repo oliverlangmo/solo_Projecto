@@ -36,12 +36,22 @@ $http({
 };
 }]);
 myApp.controller('expenseViewer',['$scope', '$http', function($scope, $http){
+  $scope.expenseTotals = [];
 $scope.seeExpenses = function(){
   $http({
    method: 'GET',
    url: '/getExpenses'
 }).then(function(response){
+  console.log(response.data);
   $scope.allTheExpenses = response.data;
+  for (var i = 0; i < response.data.length; i++) {
+    $scope.expenseTotals.push(response.data[i].amount);
+  }
+ $scope.sumTotal = $scope.expenseTotals.reduce(add,0);
+  function add (a,b){
+    return a+b;
+  }
+  console.log($scope.expenseTotals);
 });
 };
 }]);
