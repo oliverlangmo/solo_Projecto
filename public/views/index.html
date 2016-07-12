@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html ng-app = 'myApp'>
+<html>
   <head>
     <meta charset="utf-8">
     <title>FSAide Expense Tracker</title>
-    <script src="/vendors/angular.min.js" charset="utf-8"></script>
-      <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="../vendors/angular.min.js" charset="utf-8"></script>
+      <script src="../vendors/angular-route.min.js" charset="utf-8"></script>
     <script src="./scripts/FE-app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../vendors/bootstrap.min.css">
     <link rel="stylesheet" href="views/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
-    <div ng-include="'views/partials/nav.html'"></div>
-    <main ng-view></main>
+  <body ng-app = "myApp">
+
+      <main ng-view></main>
+    </div>
   </body>
 </html>

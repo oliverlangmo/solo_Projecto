@@ -6,11 +6,32 @@ var mongoose = require('mongoose');
 app.use(bodyParser.json());
 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
+var passport = require('../strategies/userStrategy');
+var session = require('express-session');
 
+// Route includes
+var index = require('../routes/index');
+var user = require('../routes/user');
+var register = require('../routes/register');
 app.listen(process.env.PORT||8080, function(req,res){
 console.log('server listening on port 8080');
 });
 app.use(express.static('public'));
+// Passport Session Configuration //
+app.use(session({
+   secret: 'secret',
+   key: 'user',
+   resave: 'true',
+   saveUninitialized: false,
+   cookie: { maxage: 60000, secure: false }
+}));
+
+// start up passport sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Routes
+
 app.get('/', function(req,res){
   res.sendFile(path.resolve('public/views/index.html'));
 });
@@ -77,3 +98,6 @@ app.post('/addExpense', function(req,res){
            res.send( data );
          });
        });
+ app.use('/register', register);
+ app.use('/user', user);
+ app.use('/*', index);
