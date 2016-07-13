@@ -113,16 +113,39 @@ $scope.seeExpenses = function(){
    url: '/getExpenses'
 }).then(function(response){
   console.log(response.data);
+  $scope.expenseTotals=[];
+  $scope.allTheExpenses=[];
+
   $scope.allTheExpenses = response.data;
   for (var i = 0; i < response.data.length; i++) {
     $scope.expenseTotals.push(response.data[i].amount);
-  }
+}
  $scope.sumTotal = $scope.expenseTotals.reduce(add,0);
   function add (a,b){
     return a+b;
   }
   console.log($scope.expenseTotals);
 });
+};
+$scope.deleteExpense = function(){
+  var expenseToDelete = {
+   id:event.target.id
+  };
+  console.log('delete this:',expenseToDelete);
+  $scope.expenseTotals.pop();
+ $http({
+ method:'DELETE',
+ url:'/deleteExpense',
+ data: expenseToDelete,
+ headers: {'Content-Type': 'application/json;charset=utf-8'}
+   }).then( function mySuccess( response ) {
+             console.log( response.data ) ;
+
+         }, function myError( response ) {
+             console.log( response.statusText );
+
+});
+$scope.seeExpenses();
 };
 }]);
 myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
