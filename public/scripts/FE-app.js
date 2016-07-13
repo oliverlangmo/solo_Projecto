@@ -102,6 +102,12 @@ $http({
  url: '/addExpense',
  data: expenseToSave
 });
+
+$scope.pyIn = '';
+$scope.whatexpenseIn='';
+$scope.expenseAmtIn='';
+$scope.expenseDateIn='';
+$scope.receiptImgIn='';
 };
 }]);
 myApp.controller('expenseViewer',['$scope', '$http', function($scope, $http){
@@ -132,7 +138,6 @@ $scope.deleteExpense = function(){
    id:event.target.id
   };
   console.log('delete this:',expenseToDelete);
-  $scope.expenseTotals.pop();
  $http({
  method:'DELETE',
  url:'/deleteExpense',
@@ -160,6 +165,8 @@ myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
     url: '/setPlanYear',
     data: planYearSend
   });
+  $scope.set_plan_year='';
+  $scope.amount_flexed='';
   };
 }]);
 myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http){
