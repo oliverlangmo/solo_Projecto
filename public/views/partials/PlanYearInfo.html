@@ -3,7 +3,7 @@
 <table>
   <tr ng-repeat="plan in allThePlans">
      <td><strong>Plan Year: </strong> {{plan.planYear }}</td>
-     <td><strong>Amount Flexed: </strong> {{plan.amount_flexed | currency: '$'}}</td>
+     <td><strong>Amount Flexed: </strong> {{plan.amount_flexed | currency: '$'}} <button ng-click = 'deletePlanInfo()' id = "{{plan._id}}">Delete Plan Info</button></td>
    </tr>
  </table>
 

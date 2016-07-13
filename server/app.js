@@ -98,6 +98,20 @@ app.post('/addExpense', function(req,res){
            res.send( data );
          });
        });
+app.delete('/deletePlanInfo', function (req, res){
+
+  console.log('delete route w:', req.body);
+
+        planYearToDB.findOne({_id: req.body.id}, function(err, userResult) {
+          if(err){
+            console.log(err);
+            res.sendStatus(500);
+          }else{
+            planYearToDB.remove({_id: userResult._id}, function(err) {});
+            res.sendStatus(200);
+          }
+        });
+      });// e
  app.use('/register', register);
  app.use('/user', user);
  app.use('/*', index);

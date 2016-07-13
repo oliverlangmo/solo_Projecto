@@ -150,5 +150,21 @@ myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http)
       $scope.allThePlans = response.data;
     });
   };
+ $scope.deletePlanInfo = function(){
+   var PYToDelete = {
+    id:event.target.id
+   };
+   console.log('delete this:',PYToDelete);
+  $http({
+  method:'DELETE',
+  url:'/deletePlanInfo',
+  data: PYToDelete,
+  headers: {'Content-Type': 'application/json;charset=utf-8'}
+    }).then( function mySuccess( response ) {
+              console.log( response.data ) ;
+          }, function myError( response ) {
+              console.log( response.statusText ) ;
+});
 
+ };
 }]);
