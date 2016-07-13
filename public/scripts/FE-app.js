@@ -146,7 +146,7 @@ myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http)
       method: 'GET',
       url: '/getPlanInfo'
     }).then(function(response){
-      console.log(response);
+      console.log(response.data);
       $scope.allThePlans = response.data;
     });
   };
