@@ -153,24 +153,32 @@ $scope.deleteExpense = function(){
 $scope.seeExpenses();
 };
 $scope.modalShown = false;
-$scope.toggleModal = function() {
+$scope.toggleModal = function(expenseID) {
+  console.log(expenseID);
   $scope.modalShown = !$scope.modalShown;
 };
-$scope.updateExpense = function(){
+$scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,receiptImgIn){
   var expenseToUpdate={
     id: event.target.id,
-    planYear: $scope.pyIn,
-    description: $scope.whatexpenseIn,
-    amount:$scope.expenseAmtIn,
-    date: $scope.expenseDateIn,
-    receipt: $scope.receiptImgIn
+    planYear: pyIn,
+    description: whatexpenseIn,
+    amount:expenseAmtIn,
+    date: expenseDateIn,
+    receiptPic: receiptImgIn
     };
     console.log(expenseToUpdate);
     $http({
      method: 'PUT',
      url: '/updateExpense',
-     data: expenseToUpdate
-    });
+     data: expenseToUpdate,
+     headers: {'Content-Type': 'application/json;charset=utf-8'}
+   }).then( function mySuccess( response ) {
+              console.log( response.data ) ;
+
+          }, function myError( response ) {
+              console.log( response.statusText );
+});
+$scope.seeExpenses();
 };
 }]);
 myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
@@ -215,6 +223,7 @@ myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http)
           }, function myError( response ) {
               console.log( response.statusText ) ;
 });
+$scope.getPlanYearInfo();
 };
 }]);
 myApp.directive('modalDialog', function() {
@@ -238,10 +247,3 @@ myApp.directive('modalDialog', function() {
     template: "<div class='ng-modal' ng-show='show'><div class='ng-modal-overlay' ng-click='hideModal()'></div><div class='ng-modal-dialog' ng-style='dialogStyle'><div class='ng-modal-close' ng-click='hideModal()'>X</div><div class='ng-modal-dialog-content' ng-transclude></div></div></div>"
   };
 });
-
-// myApp.controller('MyCtrl', ['$scope', function($scope) {
-//   $scope.modalShown = false;
-//   $scope.toggleModal = function() {
-//     $scope.modalShown = !$scope.modalShown;
-//   };
-// }]);

@@ -125,7 +125,15 @@ console.log('delete route w:', req.body);
         res.sendStatus(200);
       }
     });
-  });// e
+  });// end delete
+  app.put('/updateExpense', function(req,res){
+    console.log('update route with:', req.body);
+    var query = {_id: req.body.id};
+expenseToDB.findOneAndUpdate(query, {planYear: req.body.planYear, description: req.body.description, amount: req.body.amount, date: req.body.date, receiptPic: req.body.receiptPic}, function(err){
+ });
+});
+  
+
  app.use('/register', register);
  app.use('/user', user);
  app.use('/*', index);
