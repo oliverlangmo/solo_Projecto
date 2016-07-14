@@ -9,3 +9,12 @@ img:active {
 
     -webkit-transform: scale(2);
 }
+.container{
+  width: 400px;
+  margin: 200px auto;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+#login{
+  padding: 10px;
+}

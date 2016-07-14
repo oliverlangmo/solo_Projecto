@@ -1,11 +1,7 @@
 <body ng-app="myApp">
-      <div class="instructions">
-          <div class="container">
-              <h1 class="lead">Login</h1>
-          </div>
-      </div>
       <div class="container">
-          <!-- Set form action and method -->
+              <h1 class="lead">Login</h1>
+                <!-- Set form action and method -->
           <form>
               <div>
                   <label for="username">Username:</label>
@@ -15,7 +11,7 @@
                   <label for="password">Password:</label>
                   <input type="password" name="password" ng-model = "user.password"id="password"/>
               </div>
-              <div>
+              <div id = 'login'>
                   <input type="submit" ng-click="login()" value="Log In"/>
                   <a href="#register">Register</a>
               </div>
