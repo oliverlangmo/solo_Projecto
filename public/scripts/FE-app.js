@@ -152,11 +152,13 @@ $scope.deleteExpense = function(){
 });
 $scope.seeExpenses();
 };
+
 $scope.modalShown = false;
 $scope.toggleModal = function(expenseID) {
   console.log(expenseID);
   $scope.modalShown = !$scope.modalShown;
 };
+
 $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,receiptImgIn){
   var expenseToUpdate={
     id: event.target.id,
@@ -180,7 +182,8 @@ $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,re
 });
 $scope.seeExpenses();
 };
-}]);
+}]); //end expense view controller
+
 myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
   $scope.sendYearInfo = function(){
     var planYearSend = {
