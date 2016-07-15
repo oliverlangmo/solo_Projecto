@@ -1,11 +1,17 @@
-<div ng-controller="getPlanYearDeetz" id = 'plans'>
-<button type="button" ng-click="getPlanYearInfo()"name="button">See Plan Year Info</button>
-<table>
-  <tr ng-repeat="plan in allThePlans">
-     <td><strong>Plan Year: </strong> {{plan.planYear }}</td>
-     <td><strong>Amount Flexed: </strong> {{plan.amount_flexed | currency: '$'}} <button ng-click = 'deletePlanInfo()' id = "{{plan._id}}">Delete Plan Info</button></td>
-   </tr>
- </table>
-
-
+<div ng-controller="getPlanYearDeetz" id = 'plans' ng-init='getPlanYearInfo()'>
+  <!-- <button type="button" ng-click="getPlanYearInfo()"name="button">See Plan Year Info</button> -->
+  <table class = 'table' id = "planInfo">
+    <thead>
+      <th>Plan Year</th>
+      <th>Amount Flexed</th>
+    </thead>
+    <tbody>
+       <tr ng-repeat="plan in allThePlans">
+         <td>{{plan.planYear }}</td>
+         <td>{{plan.amount_flexed | currency: '$'}}
+           <button ng-click = 'deletePlanInfo()' id = "{{plan._id}}">Delete Plan Info</button>
+         </td>
+       </tr>
+   </tbody>
+  </table>
 </div>

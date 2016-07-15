@@ -1,5 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div ng-controller='expenseViewer'>
+<!-- <div ng-controller='expenseViewer' ng-init = 'seeExpenses()'> -->
   <div ng-include="'views/partials/PlanYearInfo.html'"></div>
   <div id = 'totesMaGoats'>
     <strong>TOTAL SPENT:</strong> {{sumTotal | currency: "$"}}<br />
@@ -19,7 +19,7 @@
       </thead>
       <tbody>
 
-      <tr ng-repeat="expense in allTheExpenses">
+      <tr ng-repeat="expense in allTheExpenses track by $index">
          <td> {{expense.planYear }}</td>
        <td>{{expense.description }}</td>
         <td>{{expense.amount | currency: '$'}}</td>

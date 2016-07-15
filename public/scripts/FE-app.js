@@ -156,6 +156,7 @@ $scope.seeExpenses();
 $scope.modalShown = false;
 $scope.toggleModal = function(expenseID) {
   console.log(expenseID);
+  console.log($scope.modalShown);
   $scope.modalShown = !$scope.modalShown;
 };
 
@@ -180,7 +181,6 @@ $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,re
           }, function myError( response ) {
               console.log( response.statusText );
 });
-$scope.seeExpenses();
 };
 }]); //end expense view controller
 
