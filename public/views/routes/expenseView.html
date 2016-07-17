@@ -19,7 +19,7 @@
       </thead>
       <tbody>
 
-      <tr ng-repeat="expense in allTheExpenses track by $index">
+      <tr ng-repeat="expense in allTheExpenses" ng-class-odd = "odd" ng-class-even="even">
          <td> {{expense.planYear }}</td>
        <td>{{expense.description }}</td>
         <td>{{expense.amount | currency: '$'}}</td>

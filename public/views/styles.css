@@ -1,3 +1,37 @@
+html{
+  background-color: #ccc;
+}
+#hello{
+  width: 400px;
+  margin: 50px auto;
+  padding: 10px;
+}
+#headerWrap{
+  background-color: #ccc;
+  height: 100%;
+}
+#homeWrap{
+  background-color: white;
+  height: 100%;
+}
+#nombre{
+  text-align: center;
+}
+#money{
+  text-align: center;
+}
+#user{
+  height: 100%;
+}
+#welcomeInstructions{
+  height: 584px;
+}
+#planYearEntry{
+  height: 600px;
+}
+#expenseEntry{
+  height: 580px;
+}
 img {
     transition: -webkit-transform 0.25s ease;
 }
@@ -11,7 +45,7 @@ img:active {
 }
 .container{
   width: 400px;
-  margin: 200px auto;
+  margin: 100px auto;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -60,6 +94,7 @@ img:active {
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
 }
+
 #nav {
   padding: 10px;
   background-color: #ccc;

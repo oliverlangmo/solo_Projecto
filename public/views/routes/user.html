@@ -1,5 +1,8 @@
-<div>
+<div id = 'user'>
   <div ng-include="'views/partials/nav.html'"></div>
-    <h1 id="welcome" class="lead">Welcome, {{userName}}!</h1>
+    <h1 id="welcome" >Welcome, {{userName}}!</h1>
+    <div id = 'welcomeInstructions'>
+    <h2>Use the links above to enter your expenses</h2>
+    <div>
     <button class="btn btn-default" ng-click="logout()">Log Out</button>
 </div>

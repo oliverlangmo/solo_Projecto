@@ -155,9 +155,9 @@ $scope.seeExpenses();
 
 $scope.modalShown = false;
 $scope.toggleModal = function(expenseID) {
-  console.log(expenseID);
-  console.log($scope.modalShown);
+  if( "odd"){
   $scope.modalShown = !$scope.modalShown;
+}
 };
 
 $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,receiptImgIn){
