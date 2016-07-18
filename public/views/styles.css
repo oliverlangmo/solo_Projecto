@@ -49,8 +49,18 @@ img:active {
   border: 1px solid black;
   border-radius: 10px;
 }
+#boxTitle{
+  width: 150px;
+  margin: 20px auto;
+}
 #login{
   padding: 10px;
+  width: 150px;
+  margin: auto;
+}
+#credentials{
+  width: 300px;
+  margin: 0 auto;
 }
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */

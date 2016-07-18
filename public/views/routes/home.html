@@ -7,15 +7,14 @@
  </div>
   <div id = "homeWrap">
       <div class="container">
-              <h1 class="lead">Login</h1>
+              <h1 id = 'boxTitle'class="lead">Log in to FSAide</h1>
                 <!-- Set form action and method -->
           <form>
-              <div>
+              <div id= 'credentials'>
                   <label for="username">Username:</label>
                   <input type="text" name="username" ng-model = "user.username" id="username"/>
-              </div>
-              <div>
-                  <label for="password">Password:</label>
+
+                  <label for="password"> Password:</label>
                   <input type="password" name="password" ng-model = "user.password"id="password"/>
               </div>
               <div id= 'login'>
