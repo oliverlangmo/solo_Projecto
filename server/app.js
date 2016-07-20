@@ -13,6 +13,7 @@ var session = require('express-session');
 var index = require('../routes/index');
 var user = require('../routes/user');
 var register = require('../routes/register');
+
 app.listen(process.env.PORT||8080, function(req,res){
 console.log('server listening on port 8080');
 });
@@ -37,7 +38,7 @@ app.get('/', function(req,res){
 });
 var expenseToDB = require('../models/addExpense');
 var planYearToDB = require('../models/addPY');
-var mongoURI = "mongodb://localhost:27017/expense-tracker";
+var mongoURI = "mongodb://drnick98:Z123654c@ds023465.mlab.com:23465/expense-tracker";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {
@@ -132,7 +133,7 @@ console.log('delete route w:', req.body);
 expenseToDB.findOneAndUpdate(query, {planYear: req.body.planYear, description: req.body.description, amount: req.body.amount, date: req.body.date, receiptPic: req.body.receiptPic}, function(err){
  });
 });
-  
+
 
  app.use('/register', register);
  app.use('/user', user);
