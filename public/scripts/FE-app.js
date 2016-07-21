@@ -154,10 +154,9 @@ $scope.seeExpenses();
 };
 
 $scope.modalShown = false;
-$scope.toggleModal = function(expenseID) {
-  if( "odd"){
+$scope.toggleModal = function() {
   $scope.modalShown = !$scope.modalShown;
-}
+
 };
 
 $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,receiptImgIn){
