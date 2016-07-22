@@ -5,5 +5,6 @@ var planYearSchema = new Schema({
   amount_flexed: Number
 });
 
-var planYearToDB =mongoose.model('planYears', planYearSchema);
+var planYearToDB =
+mongoose.model('planYears', planYearSchema);
 module.exports= planYearToDB;
