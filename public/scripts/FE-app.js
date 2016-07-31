@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp',['ngRoute']);
 
+//ngRoutes and default controllers
 myApp.config(["$routeProvider", function($routeProvider){
   $routeProvider.
   when('/home',{
@@ -24,6 +25,7 @@ myApp.config(["$routeProvider", function($routeProvider){
     redirectTo:'home'
   });
 }]);
+// log in / register
 myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
   console.log('log in controller loaded');
     $scope.user = {
@@ -67,6 +69,8 @@ myApp.controller('LoginController', ['$scope', '$http', '$window', '$location', 
       }
     };
 }]);
+
+//validating log in credentials / log out
 myApp.controller('UserController', ['$scope', '$http', '$window', function($scope, $http, $window) {
   // This happens after page load, which means it has authenticated if it was ever going to
   console.log('checking user');
@@ -86,6 +90,8 @@ myApp.controller('UserController', ['$scope', '$http', '$window', function($scop
     });
   };
 }]);
+
+//sends expense to DB
 myApp.controller('expenseSaver',['$scope','$http', function($scope, $http){
 $scope.sendExpense = function(){
   console.log('save expense button clicked');
@@ -110,6 +116,7 @@ $scope.expenseDateIn='';
 $scope.receiptImgIn='';
 };
 }]);
+//gets expense from DB
 myApp.controller('expenseViewer',['$scope', '$http', function($scope, $http){
   $scope.expenseTotals = [];
 $scope.seeExpenses = function(){
@@ -133,6 +140,7 @@ $scope.seeExpenses = function(){
   console.log($scope.expenseTotals);
 });
 };
+//deletes expense from DB
 $scope.deleteExpense = function(){
   var expenseToDelete = {
    id:event.target.id
@@ -152,7 +160,7 @@ $scope.deleteExpense = function(){
 });
 $scope.seeExpenses();
 };
-
+//modal opens to update expense
 $scope.modalShown = false;
 $scope.toggleModal = function() {
   $scope.modalShown = !$scope.modalShown;
@@ -183,6 +191,7 @@ $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,re
 };
 }]); //end expense view controller
 
+//send plan year info to DB
 myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
   $scope.sendYearInfo = function(){
     var planYearSend = {
@@ -199,6 +208,7 @@ myApp.controller('planYearSetup', ['$scope','$http', function($scope, $http){
   $scope.amount_flexed='';
   };
 }]);
+//gets plan year info from DB
 myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http){
   $scope.getPlanYearInfo = function(){
     console.log('plan year info button clicked');
@@ -228,6 +238,8 @@ myApp.controller('getPlanYearDeetz', ['$scope', '$http', function($scope, $http)
 $scope.getPlanYearInfo();
 };
 }]);
+
+//modal info and template
 myApp.directive('modalDialog', function() {
   return {
     restrict: 'E',

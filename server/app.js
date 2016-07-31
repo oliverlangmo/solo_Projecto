@@ -48,6 +48,7 @@ MongoDB.on('error', function (err) {
 MongoDB.once('open', function () {
   console.log('mongodb connection open!');
 });
+// add expense route
 app.post('/addExpense', function(req,res){
    console.log('hit post route with ' + req.body);
    var saveExpense= new expenseToDB ({
@@ -67,6 +68,8 @@ app.post('/addExpense', function(req,res){
      }
    });
  });
+
+ // set plan year route
  app.post('/setPlanYear', function(req,res){
     console.log('hit post route with ' + req.body);
     var savePlanYear= new planYearToDB ({
@@ -83,6 +86,7 @@ app.post('/addExpense', function(req,res){
       }
     });
   });
+  // get expense route
  app.get('/getExpenses', function(req,res){
     console.log('hit the get route');
       expenseToDB.find()
@@ -99,6 +103,7 @@ app.post('/addExpense', function(req,res){
            res.send( data );
          });
        });
+//Delete plan info route
 app.delete('/deletePlanInfo', function (req, res){
 
   console.log('delete route w:', req.body);
@@ -112,7 +117,8 @@ app.delete('/deletePlanInfo', function (req, res){
             res.sendStatus(200);
           }
         });
-      });// e
+      });
+// Delete expense route
 app.delete('/deleteExpense', function (req, res){
 
 console.log('delete route w:', req.body);
@@ -127,6 +133,7 @@ console.log('delete route w:', req.body);
       }
     });
   });// end delete
+  //update expense route
   app.put('/updateExpense', function(req,res){
     console.log('update route with:', req.body);
     var query = {_id: req.body.id};
