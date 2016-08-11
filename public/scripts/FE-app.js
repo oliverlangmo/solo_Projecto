@@ -173,7 +173,7 @@ $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,re
     planYear: pyIn,
     description: whatexpenseIn,
     amount:expenseAmtIn,
-    date: new Date(expenseDateIn),
+    date: expenseDateIn,
     receiptPic: receiptImgIn
     };
     console.log(expenseToUpdate);
