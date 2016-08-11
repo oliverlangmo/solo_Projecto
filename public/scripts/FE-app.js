@@ -92,7 +92,7 @@ myApp.controller('UserController', ['$scope', '$http', '$window', function($scop
 }]);
 
 //sends expense to DB
-myApp.controller('expenseSaver',['$scope','$http', function($scope, $http){
+myApp.controller('expenseSaver',['$scope','$http','$location', function($scope, $http,$location){
 $scope.sendExpense = function(){
   console.log('save expense button clicked');
   var expenseToSave={
@@ -158,7 +158,7 @@ $scope.deleteExpense = function(){
              console.log( response.statusText );
 
 });
-$scope.seeExpenses();
+location.reload();
 };
 //modal opens to update expense
 $scope.modalShown = false;
@@ -188,6 +188,7 @@ $scope.updateExpense = function(pyIn,whatexpenseIn,expenseAmtIn,expenseDateIn,re
           }, function myError( response ) {
               console.log( response.statusText );
 });
+location.reload();
 };
 }]); //end expense view controller
 
