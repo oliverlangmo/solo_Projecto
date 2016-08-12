@@ -24,7 +24,7 @@
        <td>{{expense.description }}</td>
         <td>{{expense.amount | currency: '$'}}</td>
          <td>{{expense.date | date}}</td>
-         <td><img ng-src={{expense.receiptPic}}><button id = "{{expense._id}}" ng-click = "deleteExpense()">Delete Expense</button>
+         <td><img ng-src={{expense.receiptPic}} style = 'width: 200px;'><button id = "{{expense._id}}" ng-click = "deleteExpense()">Delete Expense</button>
            <button ng-click='toggleModal(expense._id)'>Update Expense</button>
            <modal-dialog id = '{{expense_.id}}'show='modalShown' width='400px' height='60%'>
              <p>Select Plan Year
