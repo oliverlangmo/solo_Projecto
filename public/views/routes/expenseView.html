@@ -3,7 +3,7 @@
   <div ng-include="'views/partials/PlanYearInfo.html'"></div>
   <div id = 'totesMaGoats'>
     <strong>TOTAL SPENT:</strong> {{sumTotal | currency: "$"}}<br />
-    <strong>TOTAL LEFT:</strong> {{2000 - sumTotal | currency : "$"}}
+    <strong>TOTAL LEFT:</strong> {{sumTotal | currency : "$"}}
   </div>
   <button type="button" ng-click="seeExpenses()"name="button">See Expenses</button><br/>
 
